@@ -33,7 +33,7 @@ public class MyBatisPagePlugin implements Interceptor {
             int key = paraObject.hashCode();
             if (rowBoundsMap.containsKey(key)) {
                 String sql = boundSql.getSql();
-                String pageSql = SQLUtils.getPageSQL(sql, dialect, rowBoundsMap.get(key));
+                String pageSql = SQLUtils.getPageSQL(dialect, sql, rowBoundsMap.get(key));
                 Field field = BoundSql.class.getDeclaredField("sql");
                 if (field.isAccessible()) {
                     field.set(boundSql, pageSql);
