@@ -25,9 +25,9 @@ public class MBGUtils {
     public static List<Context> createModels() throws IOException, XMLParserException, InvalidConfigurationException, SQLException, InterruptedException {
         List<String> warnings = new ArrayList<String>();
         boolean overwrite = true;
-        File configFile = new File(MBGUtils.class.getResource("/MBGConfig.xml").getPath());
+//        File configFile = new File(MBGUtils.class.getResource("/MBGConfig.xml").getPath());
         ConfigurationParser cp = new ConfigurationParser(warnings);
-        Configuration config = cp.parseConfiguration(configFile);
+        Configuration config = cp.parseConfiguration(MBGUtils.class.getResourceAsStream("/MBGConfig.xml"));
         DefaultShellCallback callback = new DefaultShellCallback(overwrite);
         MyBatisGenerator myBatisGenerator = new MyBatisGenerator(config, callback, warnings);
         myBatisGenerator.generate(null);

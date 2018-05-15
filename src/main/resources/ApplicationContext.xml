@@ -22,8 +22,8 @@
         <property name="mapperLocations" value="classpath:com/lizhan/system/xml/*.xml"></property>
         <property name="plugins">
             <array>
-                <bean class="com.github.pagehelper.PageInterceptor">
-                    <!--<property name="dialect" value="mariadb"></property>-->
+                <bean class="com.lizhan.core.base.MyBatisPagePlugin">
+                    <property name="dialect" value="mysql"></property>
                 </bean>
             </array>
         </property>
